@@ -40,7 +40,7 @@
     <h2 matSubheader>Transactions</h2>
     <ul style="list-style-type: none;padding-inline-start: 0px;">
         <li *ngFor="let item of myArray; let i = index">
-            <a (click)="toggle[i] = !toggle[i]" mat-list-item routerLinkActive="list-item-active" routerLink="/purchases">
+            <a (click)="toggle[i] = !toggle[i]" mat-list-item routerLinkActive="list-item-active">
                 <mat-icon>{{item.icon}}</mat-icon>
                 {{item.title}}
                 <span [ngStyle]="{left: getPosition(item.title)}" style="position: inherit;" *ngIf="toggle[i] = !toggle[i]" class="material-icons">keyboard_arrow_right</span>
