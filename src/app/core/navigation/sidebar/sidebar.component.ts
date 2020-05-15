@@ -7,9 +7,6 @@ import { NavService } from '@app/core/services/nav.service';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-      
-      
-      
   toggle: boolean[];
   constructor(private navService: NavService) { 
     this.toggle = this.myArray.map(i => false);
@@ -50,6 +47,10 @@ export class SidebarComponent implements OnInit {
     },
   ];
 
+  getPosition(i: string): String {
+    return i === "Purchases" ? '65px' : '100px';
+  }
+  
   closeSidenav(): void {
         this.navService.closeNav();
   }
