@@ -1,0 +1,70 @@
+<mat-nav-list>
+    <h3 class="title">System</h3>
+    <mat-divider></mat-divider>
+
+    <div class="profile-card">
+        <img src="https://user-images.githubusercontent.com/35910158/35493994-36e2c50e-04d9-11e8-8b38-890caea01850.png" alt="Admin Image" />
+        <div>
+            <h4>Admin</h4>
+            <p>admin@google.com</p>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">
+        <mat-icon>dashboard</mat-icon>
+        Dashboard
+    </a>
+    <mat-divider></mat-divider>
+    <!-- Dashboard -->
+
+    <!-- Accounts -->
+    <h2 matSubheader>Accounts</h2>
+    <a mat-list-item routerLinkActive="list-item-active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/employee-managers">
+        <mat-icon>supervisor_account</mat-icon>
+        Employee Managers
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/account-managers">
+        <mat-icon>group</mat-icon>
+        Account Managers
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/emails">
+        <mat-icon>email</mat-icon>
+        Emails
+    </a>
+    <!-- Accounts -->
+
+    <!-- Transactions -->
+    <mat-divider></mat-divider>
+    <h2 matSubheader>Transactions</h2>
+    
+
+    <ul style="list-style-type: none;padding-inline-start: 0px;">
+        <li *ngFor="let item of myArray; let i = index">
+            <a (click)="toggle[i] = !toggle[i]" mat-list-item routerLinkActive="list-item-active">
+                <mat-icon>{{item.icon}}</mat-icon>
+                {{item.title}}
+                <span *ngIf="toggle[i] = !toggle[i]" class="material-icons">keyboard_arrow_right</span>
+                <span *ngIf="toggle[i] = !toggle[i]"  class="material-icons">keyboard_arrow_down</span>
+            </a>
+            <div *ngIf="item.children && toggle[i]">
+                <ng-container *ngTemplateOutlet="tree; context: { $implicit: item.children, idx: i }"></ng-container>
+            </div>
+        </li>
+    </ul>
+
+    <ng-template #tree let-allItems let-idx="idx">
+        <ul style="list-style-type: none;padding-inline-start: 0px;">
+            <li *ngFor="let item of allItems; let n = index">
+                <a (click)="toggle[idx] = !toggle[idx]" mat-list-item routerLinkActive="list-item-active">
+                    <span style="margin-left: 43px;">{{item.title}}</span>
+                </a>
+                <div *ngIf="item.children && toggle[n]">
+                    <ng-container *ngTemplateOutlet="tree; context: { $implicit: item.children, idx: n }"></ng-container>
+                </div>
+            </li>
+        </ul>
+    </ng-template>
+    <!-- Transactions -->
+</mat-nav-list>

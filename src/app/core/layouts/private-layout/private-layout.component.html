@@ -1,0 +1,14 @@
+<app-header class="fixed-topnav" fxHide.gt-xs></app-header>
+
+<ng-container *ngIf="{ isMobile: isMobile$ | async } as observables">
+    <mat-drawer-container [hasBackdrop]="observables.isMobile">
+        <mat-drawer #appDrawer [mode]="observables.isMobile ? 'over' : 'side'" [opened]="!observables.isMobile || sideBarOpened">
+            <app-sidebar></app-sidebar>
+        </mat-drawer>
+        <mat-drawer-content>
+            <app-header fxHide.xs></app-header>
+            <router-outlet></router-outlet>
+            <app-footer></app-footer>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</ng-container>

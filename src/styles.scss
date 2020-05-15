@@ -1,0 +1,95 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+@import './assets/sass/custom-theme.scss';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+// Navigation
+.mat-drawer-container {
+  height: 100vh;
+}
+
+.mat-drawer-content {
+  display: flex !important;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .fixed-topnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100% !important;
+  }
+  .mat-drawer-container,
+  .mat-drawer {
+    padding-top: 56px;
+  }
+}
+
+// Navigation
+
+// Main Div
+.main_container {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// Main Div
+
+// Table
+div.table {
+  margin-bottom: 30px;
+}
+table {
+  width: 100%;
+
+  td,
+  th {
+    width: 25%;
+  }
+}
+
+h3.mat-title {
+  color: #000000;
+  margin-top: 10px;
+}
+
+.mat-form-field {
+  font-size: 4px;
+  width: 100%;
+}
+
+// Table
+
+// Footer
+
+footer {
+
+  padding: 20px;
+  background-color: mat-color($primary);
+  color: #fff;
+}
+
+// Footer
+
+
+// Button
+
+button.add_button {
+  margin-bottom: 30px !important;
+}
+ // Button
+
+
+ 

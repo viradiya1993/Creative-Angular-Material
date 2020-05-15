@@ -1,0 +1,79 @@
+<!-- <mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="toggleSideBar()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <span> APP LOGO </span>
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+            <ul fxLayout="row" fxLayoutGap="20px">
+                <li>
+                    <button mat-icon-button>
+                        <mat-icon>settings</mat-icon>
+                    </button>
+                </li>
+                <li>
+                    <button mat-icon-button>
+                        <mat-icon>help_outline</mat-icon>
+                    </button>
+                </li>
+                <li>
+                    <button mat-button [matMenuTriggerFor]="menu">
+                        <mat-icon>person_outline</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                            <mat-icon>exit_to_app</mat-icon>
+                            Sign out
+                        </button>
+                    </mat-menu>
+
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar> -->
+
+<mat-toolbar color="primary" class="mat-elevation-z1">
+  <a id="menu" class="mr-2 sidenav__toggler" fxLayoutAlign="center" (click)="navService.toggleNav()">
+    <mat-icon>menu</mat-icon>
+  </a>
+  <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+    <ul fxLayout="row">
+      <li>
+        <button mat-button>
+          <mat-icon>settings</mat-icon>
+        </button>
+      </li>
+      <li>
+        <button mat-button [matMenuTriggerFor]="notif">
+          <mat-icon>notifications</mat-icon>
+        </button>
+        <mat-menu #notif="matMenu">
+          <button mat-menu-item>
+            Meeting Today at 1pm
+          </button>
+          <button mat-menu-item>
+            Meeting Today at 5pm
+          </button>
+          <button mat-menu-item>
+            Meeting Today at 8pm
+          </button>
+        </mat-menu>
+      </li>
+      <li>
+        <button mat-button [matMenuTriggerFor]="person">
+          <mat-icon>person</mat-icon>
+        </button>
+        <mat-menu #person="matMenu">
+          <button mat-menu-item routerLink="/login">
+            <mat-icon>exit_to_app</mat-icon>
+            Sign out
+          </button>
+        </mat-menu>
+      </li>
+    </ul>
+  </div>
+  <!-- <span>Admin Panel</span> -->
+</mat-toolbar>

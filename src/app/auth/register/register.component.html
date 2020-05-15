@@ -1,0 +1,60 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+       <span class="spacer"></span>
+       <a mat-button routerLink="/register">Register</a>
+       <a mat-button routerLink="/login">Login</a>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="signin-content">
+    <mat-card>
+        <mat-card-content>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <p class="loginTitle">Register</p>
+                <mat-form-field class="full-width-input" appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input  matInput  placeholder="First name"  formControlName="fname"  required>
+                    <mat-error *ngIf="isFieldInvalid('fname')">
+                        Please enter your First name
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width-input" appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input  matInput  placeholder="Last name"  formControlName="lname"  required>
+                    <mat-error *ngIf="isFieldInvalid('lname')">
+                        Please enter your Last name
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width-input" appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input  matInput  placeholder="Address"  formControlName="address"  required>
+                    <mat-error *ngIf="isFieldInvalid('address')">
+                        Please enter your address
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width-input" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input  matInput  placeholder="Email"  formControlName="email"  required>
+                    <mat-error *ngIf="isFieldInvalid('email')">
+                        Please enter your email
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width-input" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input  matInput  placeholder="Password"  formControlName="password" type="password"  required>
+                    <mat-error *ngIf="isFieldInvalid('password')">
+                        Please enter your password
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-card-actions>
+                  <button mat-raised-button color="primary" type="submit">Register</button>
+                </mat-card-actions>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
